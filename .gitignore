@@ -1,0 +1,28 @@
+# .gitignore
+# Exclude Python cache, build files, and binaries
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+ENV/
+
+# APK & build artifacts
+*.apk
+*.apk.bak
+love_apk.txt
+
+# System files
+.DS_Store
+*.swp
+*.log
+*.zip
+
+# PyInstaller
+*.spec
+dist/
+build/
