@@ -1,28 +1,28 @@
-# .gitignore
-# Exclude Python cache, build files, and binaries
-
+# Ignore Python cache
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 
-# Virtual environments
+# Ignore virtualenv
 env/
 venv/
-ENV/
 
-# APK & build artifacts
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore secrets
+*.bak
+*.txt
+*.log
+
+# Ignore compiled APKs
 *.apk
 *.apk.bak
-love_apk.txt
+*.aab
 
-# System files
-.DS_Store
-*.swp
-*.log
-*.zip
+# Ignore node_modules if used
+node_modules/
 
-# PyInstaller
-*.spec
-dist/
-build/
+# Ignore editor settings
+.vscode/
+.idea/
