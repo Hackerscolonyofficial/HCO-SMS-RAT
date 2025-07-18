@@ -1,28 +1,7 @@
-# Ignore Python cache
+*.pyc
 __pycache__/
-*.py[cod]
-
-# Ignore virtualenv
-env/
-venv/
-
-# Ignore system files
-.DS_Store
-Thumbs.db
-
-# Ignore secrets
-*.bak
-*.txt
-*.log
-
-# Ignore compiled APKs
+nohup.out
+tunnel.log
+.env
 *.apk
-*.apk.bak
-*.aab
-
-# Ignore node_modules if used
-node_modules/
-
-# Ignore editor settings
-.vscode/
-.idea/
+*.zip
