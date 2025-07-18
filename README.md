@@ -62,22 +62,6 @@ bash start.sh
 
 ---
 
-## 📂 Project Structure
-
-```
-📦 HCO-SMS-RAT/
-├── start.sh
-├── main.py
-├── webhook.py
-├── index.html
-├── requirements.txt
-├── love.txt
-├── LICENSE
-└── README.md
-```
-
----
-
 ## ⚠️ Disclaimer
 
 > **This tool is for educational and research purposes only.**
